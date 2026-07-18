@@ -1,0 +1,6 @@
+{
+  "name": "QuickShift",
+  "description": "Hourly & Part-Time Job Marketplace for Sri Lanka",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

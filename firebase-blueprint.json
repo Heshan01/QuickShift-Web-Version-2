@@ -1,0 +1,86 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profiles for workers, employers, and admin",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "enum": ["seeker", "poster", "admin"] },
+        "fullName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "isBlocked": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "preferredCategories": { "type": "array" },
+        "businessName": { "type": "string" }
+      },
+      "required": ["role", "fullName", "phone", "email", "isBlocked", "createdAt"]
+    },
+    "Job": {
+      "title": "Job Posting",
+      "description": "Hourly job posting in Sri Lanka",
+      "type": "object",
+      "properties": {
+        "posterId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "hourlyRate": { "type": "number" },
+        "estimatedDuration": { "type": "string" },
+        "category": { "type": "string" },
+        "contactPhone": { "type": "string" },
+        "district": { "type": "string" },
+        "city": { "type": "string" },
+        "address": { "type": "string" },
+        "searchKeywords": { "type": "array" },
+        "photoURL": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected", "closed"] },
+        "rejectionReason": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "posterId",
+        "title",
+        "description",
+        "hourlyRate",
+        "category",
+        "contactPhone",
+        "district",
+        "city",
+        "address",
+        "searchKeywords",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Application": {
+      "title": "Job Application",
+      "description": "An application of a job seeker to a specific job",
+      "type": "object",
+      "properties": {
+        "jobId": { "type": "string" },
+        "seekerId": { "type": "string" },
+        "posterId": { "type": "string" },
+        "status": { "type": "string", "enum": ["applied", "accepted", "rejected"] },
+        "appliedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["jobId", "seekerId", "posterId", "status", "appliedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profile records stored by auth user ID"
+    },
+    "/jobs/{jobId}": {
+      "schema": "Job",
+      "description": "Job posting records"
+    },
+    "/applications/{applicationId}": {
+      "schema": "Application",
+      "description": "Application records tracking seekers applied to jobs"
+    }
+  }
+}

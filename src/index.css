@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  /* Natural Tones palette mapping to override default colors across the app */
+  --color-emerald-50: #F9F8F4;
+  --color-emerald-100: #E8E7DF;
+  --color-emerald-200: #D1CFBF;
+  --color-emerald-300: #B7B5A0;
+  --color-emerald-400: #8C8C69;
+  --color-emerald-500: #717150;
+  --color-emerald-600: #5A5A40;
+  --color-emerald-700: #4B4B35;
+  --color-emerald-800: #3D3D2B;
+  --color-emerald-900: #2C2C1F;
+  --color-emerald-950: #1C1C14;
+
+  --color-slate-50: #F9F8F4;
+  --color-slate-100: #F5F4ED;
+  --color-slate-150: #EBEAE1;
+  --color-slate-200: #E8E7E0;
+  --color-slate-300: #DAD8CE;
+  --color-slate-400: #BDBAA9;
+  --color-slate-500: #938F7E;
+  --color-slate-600: #716E5F;
+  --color-slate-700: #575549;
+  --color-slate-800: #3F3E35;
+  --color-slate-900: #2D2D2A;
+  --color-slate-950: #1D1D1B;
+
+  --color-amber-50: #FAF6F0;
+  --color-amber-100: #F5ECD9;
+  --color-amber-200: #ECCFA2;
+  --color-amber-500: #E3B485;
+  --color-amber-600: #D4A373;
+  --color-amber-700: #B58455;
+  --color-amber-800: #8E6038;
+
+  --color-green-100: #E8E7DF;
+  --color-green-700: #5A5A40;
+
+  /* Define theme colors for custom Tailwind utility references if needed */
+  --color-natural-primary: #5A5A40;
+  --color-natural-secondary: #D4A373;
+  --color-natural-dark: #2D2D2A;
+  --color-natural-bg: #F9F8F4;
+  --color-natural-border: #E8E7E0;
+}

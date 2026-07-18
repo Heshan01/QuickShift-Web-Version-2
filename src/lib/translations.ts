@@ -1,0 +1,251 @@
+export type Language = 'en' | 'si';
+
+export const translations = {
+  en: {
+    brand: "QuickShift",
+    tagline: "Hourly & Part-Time Job Marketplace",
+    desc: "Connecting students and casual workers with instant part-time opportunities in Sri Lanka. No WhatsApp spam, real applications, verified jobs.",
+    
+    // Auth and Roles
+    findWork: "Find Work",
+    postJob: "Post a Job",
+    imSeeker: "I'm looking for work (Job Seeker)",
+    imPoster: "I want to post jobs (Job Poster)",
+    login: "Log In",
+    signup: "Sign Up",
+    logout: "Log Out",
+    forgotPassword: "Forgot Password?",
+    resetPassword: "Reset Password",
+    email: "Email Address",
+    password: "Password",
+    fullName: "Full Name",
+    phone: "Contact Phone Number",
+    businessName: "Business Name (Optional)",
+    preferredCategories: "Preferred Job Categories",
+    haveAccount: "Already have an account? Log In",
+    noAccount: "Don't have an account? Sign Up",
+    registerAs: "Register as",
+    
+    // Categories
+    cat_event: "Event Staffing",
+    cat_delivery: "Delivery",
+    cat_tutoring: "Tutoring",
+    cat_retail: "Retail & Shop Help",
+    cat_labor: "Moving & Manual Labour",
+    cat_food: "Food Service / Waiter",
+    cat_promo: "Promotions & Marketing",
+    cat_other: "Other Jobs",
+
+    // Search & Filters
+    searchPlaceholders: "Search by town, city, or landmark (e.g. Malabe, Kurunegala, Nugegoda)...",
+    searchBtn: "Search",
+    districtLabel: "District",
+    cityLabel: "City / Town",
+    categoryLabel: "Category",
+    allDistricts: "All Districts (Sri Lanka)",
+    allCategories: "All Categories",
+    minRate: "Min Rate (Rs/hr)",
+    maxRate: "Max Rate (Rs/hr)",
+    noJobsFound: "No approved jobs match your search criteria.",
+    showingNearby: "No exact matches found. Showing jobs from the same district instead:",
+
+    // Job fields
+    jobTitle: "Job Title",
+    jobDesc: "Job Description",
+    hourlyRate: "Hourly Rate (Rs. / hr)",
+    duration: "Estimated Duration / Hours",
+    fullAddress: "Full Work Address",
+    posterInfo: "Employer Info",
+    applyNow: "Apply for Job",
+    applied: "Applied",
+    accepted: "Accepted / Hired",
+    approved: "Approved",
+    rejected: "Rejected",
+    closed: "Closed",
+    pending: "Pending Approval",
+    status: "Status",
+    details: "Details",
+    withdraw: "Withdraw Application",
+    
+    // Dashboards
+    seekerDashboard: "Seeker Dashboard",
+    posterDashboard: "Employer Dashboard",
+    adminDashboard: "Admin Dashboard",
+    myApplications: "My Applications",
+    browseJobs: "Browse Jobs",
+    postNewJob: "Post a New Job",
+    myJobPosts: "My Job Posts",
+    applicants: "Applicants",
+    noApplicantsYet: "No applications received yet.",
+    viewApplicants: "View Applicants",
+    acceptBtn: "Accept",
+    rejectBtn: "Reject",
+    closeJobBtn: "Close Job",
+    deleteBtn: "Delete",
+    editBtn: "Edit Job",
+    saveBtn: "Save",
+    cancelBtn: "Cancel",
+
+    // Admin Panel
+    pendingQueue: "Pending Approvals Queue",
+    allJobs: "All Job Posts",
+    allUsers: "All Users",
+    statistics: "Statistics & Growth",
+    totalUsers: "Total Users",
+    totalSeekers: "Job Seekers",
+    totalPosters: "Job Posters",
+    totalJobs: "Total Jobs",
+    pendingCount: "Pending Jobs",
+    activeJobsCount: "Active Approved Jobs",
+    blockUser: "Block User",
+    unblockUser: "Unblock User",
+    deleteUser: "Delete Account",
+    rejectionReasonPrompt: "Enter reason for rejection (this will be visible to the employer):",
+    confirmDeleteUser: "Are you sure you want to delete this user? This will also delete their job postings and applications.",
+    confirmBlockUser: "Are you sure you want to block this user? They will not be able to log in or create posts.",
+    confirmDeleteJob: "Are you sure you want to permanently delete this job post?",
+
+    // Profile & Settings
+    profile: "Profile & Settings",
+    saveProfileSuccess: "Profile updated successfully!",
+    phoneLengthErr: "Phone number must be exactly 10 digits (e.g. 0771234567)",
+    requiredErr: "This field is required",
+    positiveNumErr: "Must be a positive number",
+
+    // General
+    loading: "Loading QuickShift...",
+    submitting: "Submitting...",
+    backToDashboard: "Back to Dashboard",
+    noPermission: "You do not have permission to access this page."
+  },
+  si: {
+    brand: "QuickShift",
+    tagline: "පැයකට හෝ අර්ධකාලීන රැකියා වෙළඳපොළ",
+    desc: "ශ්‍රී ලංකාවේ විශ්ව විද්‍යාල සිසුන් සහ අනියම් සේවකයින් සඳහා ක්ෂණික අර්ධකාලීන රැකියා අවස්ථා සම්බන්ධ කිරීම. WhatsApp සමූහ කරදරවලින් තොර, සැබෑ අයදුම්පත්, තහවුරු කළ රැකියා.",
+    
+    // Auth and Roles
+    findWork: "රැකියාවක් සොයන්න",
+    postJob: "රැකියාවක් පළ කරන්න",
+    imSeeker: "මම රැකියාවක් සොයමි (රැකියා සොයන්නා)",
+    imPoster: "මට රැකියා පළ කිරීමට අවශ්‍යයි (රැකියා පළ කරන්නා)",
+    login: "ඇතුල් වන්න",
+    signup: "ලියාපදිංචි වන්න",
+    logout: "පිටවන්න",
+    forgotPassword: "මුරපදය අමතකද?",
+    resetPassword: "මුරපදය නැවත සකසන්න",
+    email: "විද්‍යුත් තැපැල් ලිපිනය",
+    password: "මුරපදය",
+    fullName: "සම්පූර්ණ නම",
+    phone: "සම්බන්ධතා දුරකථන අංකය",
+    businessName: "ව්‍යාපාරික නාමය (විකල්ප)",
+    preferredCategories: "කැමති රැකියා කාණ්ඩ",
+    haveAccount: "දැනටමත් ගිණුමක් තිබේද? ඇතුල් වන්න",
+    noAccount: "ගිණුමක් නොමැතිද? ලියාපදිංචි වන්න",
+    registerAs: "ලියාපදිංචි වන ආකාරය",
+    
+    // Categories
+    cat_event: "උත්සව සේවා සහ සහායකයින්",
+    cat_delivery: "බෙදාහැරීම් (Delivery)",
+    cat_tutoring: "උපකාරක පන්ති (Tutoring)",
+    cat_retail: "වෙළඳසැල් සහ සුපිරි වෙළඳසැල් සහාය",
+    cat_labor: "බඩු ප්‍රවාහනය සහ ශාරීරික ශ්‍රමය",
+    cat_food: "ආහාර සපයන ස්ථාන / වේටර්",
+    cat_promo: "ප්‍රචාරණ සහ අලෙවිකරණ සේවා",
+    cat_other: "වෙනත් රැකියා",
+
+    // Search & Filters
+    searchPlaceholders: "නගරය, ගම හෝ සන්ධිස්ථානය අනුව සොයන්න (උදා: මාලබේ, කුරුණෑගල, නුගේගොඩ)...",
+    searchBtn: "සොයන්න",
+    districtLabel: "දිස්ත්‍රික්කය",
+    cityLabel: "නගරය / ප්‍රදේශය",
+    categoryLabel: "කාණ්ඩය",
+    allDistricts: "සියලුම දිස්ත්‍රික්ක (ශ්‍රී ලංකාව)",
+    allCategories: "සියලුම කාණ්ඩ",
+    minRate: "අවම පැයක ගාස්තුව (රු.)",
+    maxRate: "උපරිම පැයක ගාස්තුව (රු.)",
+    noJobsFound: "ඔබ සෙවූ නිර්ණායකවලට ගැලපෙන අනුමත රැකියා කිසිවක් හමු නොවීය.",
+    showingNearby: "නියම ගැලපීම් හමු නොවීය. ඒ වෙනුවට එම දිස්ත්‍රික්කයේම රැකියා පෙන්වයි:",
+
+    // Job fields
+    jobTitle: "රැකියා මාතෘකාව",
+    jobDesc: "රැකියා විස්තරය",
+    hourlyRate: "පැයකට ගෙවීම (රු. / පැයට)",
+    duration: "ඇස්තමේන්තුගත කාලය / පැය ගණන",
+    fullAddress: "සම්පූර්ණ සේවා ස්ථාන ලිපිනය",
+    posterInfo: "රැකියා සපයන්නාගේ තොරතුරු",
+    applyNow: "රැකියාවට අයදුම් කරන්න",
+    applied: "අයදුම් කර ඇත",
+    accepted: "බඳවාගෙන ඇත (Hired)",
+    approved: "අනුමත කර ඇත",
+    rejected: "ප්‍රතික්ෂේප කර ඇත",
+    closed: "වසා දමා ඇත",
+    pending: "අනුමැතිය අපේක්ෂාවෙන්",
+    status: "තත්ත්වය",
+    details: "විස්තර",
+    withdraw: "අයදුම්පත ඉල්ලා අස්කර ගන්න",
+    
+    // Dashboards
+    seekerDashboard: "රැකියා සොයන්නන්ගේ පුවරුව",
+    posterDashboard: "රැකියා සපයන්නන්ගේ පුවරුව",
+    adminDashboard: "පාලක පුවරුව (Admin)",
+    myApplications: "මගේ අයදුම්පත්",
+    browseJobs: "රැකියා සොයන්න",
+    postNewJob: "නව රැකියාවක් පළ කරන්න",
+    myJobPosts: "මා පළ කළ රැකියා",
+    applicants: "අයදුම්කරුවන්",
+    noApplicantsYet: "තවමත් අයදුම්කරුවන් කිසිවෙකු නැත.",
+    viewApplicants: "අයදුම්කරුවන් බලන්න",
+    acceptBtn: "පිළිගන්න",
+    rejectBtn: "ප්‍රතික්ෂේප කරන්න",
+    closeJobBtn: "රැකියාව වසා දමන්න",
+    deleteBtn: "මකා දමන්න",
+    editBtn: "රැකියාව සංස්කරණය කරන්න",
+    saveBtn: "සුරකින්න",
+    cancelBtn: "අවලංගු කරන්න",
+
+    // Admin Panel
+    pendingQueue: "අනුමැතිය අපේක්ෂිත රැකියා",
+    allJobs: "සියලුම රැකියා",
+    allUsers: "සියලුම පරිශීලකයින්",
+    statistics: "සංඛ්‍යාලේඛන",
+    totalUsers: "මුළු පරිශීලකයින්",
+    totalSeekers: "රැකියා සොයන්නන්",
+    totalPosters: "රැකියා සපයන්නන්",
+    totalJobs: "මුළු රැකියා ගණන",
+    pendingCount: "අනුමැතිය අපේක්ෂිත",
+    activeJobsCount: "සක්‍රීය අනුමත රැකියා",
+    blockUser: "අත්හිටුවන්න (Block)",
+    unblockUser: "නැවත සක්‍රීය කරන්න",
+    deleteUser: "ගිණුම මකා දමන්න",
+    rejectionReasonPrompt: "ප්‍රතික්ෂේප කිරීමට හේතුව ඇතුළත් කරන්න (මෙය රැකියා සපයන්නාට පෙනෙනු ඇත):",
+    confirmDeleteUser: "මෙම පරිශීලකයා මකා දැමීමට ඔබට විශ්වාසද? මෙමගින් ඔවුන්ගේ රැකියා සහ අයදුම්පත් ද මකා දැමෙනු ඇත.",
+    confirmBlockUser: "මෙම පරිශීලකයා අත්හිටුවීමට (Block) ඔබට විශ්වාසද? ඔවුන්ට පද්ධතියට ඇතුළු වීමට නොහැකි වනු ඇත.",
+    confirmDeleteJob: "මෙම රැකියා පෝස්ටුව ස්ථිරවම මකා දැමීමට ඔබට විශ්වාසද?",
+
+    // Profile & Settings
+    profile: "පරිශීලක තොරතුරු සහ සැකසුම්",
+    saveProfileSuccess: "පරිශීලක තොරතුරු සාර්ථකව යාවත්කාලීන කරන ලදී!",
+    phoneLengthErr: "දුරකථන අංකය හරියටම ඉලක්කම් 10ක් විය යුතුය (උදා: 0771234567)",
+    requiredErr: "මෙම ක්ෂේත්‍රය අනිවාර්ය වේ",
+    positiveNumErr: "ධන අංකයක් විය යුතුය",
+
+    // General
+    loading: "QuickShift සූදානම් වෙමින් පවතී...",
+    submitting: "යොමු කරමින් පවතී...",
+    backToDashboard: "නැවත පුවරුව වෙත",
+    noPermission: "මෙම පිටුවට පිවිසීමට ඔබට අවසර නැත."
+  }
+};
+
+export const districtsOfSriLanka = [
+  "Colombo", "Gampaha", "Kalutara", "Kandy", "Matale", "Nuwara Eliya", 
+  "Galle", "Matara", "Hambantota", "Jaffna", "Kilinochchi", "Mannar", 
+  "Vavuniya", "Mullaitivu", "Batticaloa", "Ampara", "Trincomalee", 
+  "Kurunegala", "Puttalam", "Anuradhapura", "Polonnaruwa", "Badulla", 
+  "Moneragala", "Ratnapura", "Kegalle"
+].sort();
+
+export const jobCategories = [
+  "Event Staffing", "Delivery", "Tutoring", "Retail/Shop Help", 
+  "Moving/Labour", "Food Service", "Promotions", "Other"
+];

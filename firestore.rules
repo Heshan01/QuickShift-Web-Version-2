@@ -1,0 +1,110 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isBlocked() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('isBlocked', false) == true;
+    }
+
+    function isAdmin() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('role', 'seeker') == 'admin';
+    }
+
+    function isVerified() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('verificationStatus', 'pending') == 'verified';
+    }
+
+    // Users Collection
+    match /users/{uid} {
+      allow read: if request.auth != null;
+      
+      allow create: if request.auth != null && request.auth.uid == uid && 
+                    (request.resource.data.get('role', 'seeker') != 'admin' || request.resource.data.email == 'heshandilhara004@gmail.com') && 
+                    request.resource.data.get('isBlocked', false) == false &&
+                    request.resource.data.keys().hasAll(['idNumber']) &&
+                    request.resource.data.idNumber is string;
+                    
+      allow update: if request.auth != null && (
+                      isAdmin() || (
+                        request.auth.uid == uid && 
+                        resource.data.get('isBlocked', false) != true && 
+                        (request.resource.data.get('role', 'seeker') != 'admin' || request.resource.data.email == 'heshandilhara004@gmail.com') && 
+                        request.resource.data.get('isBlocked', false) == resource.data.get('isBlocked', false) &&
+                        request.resource.data.get('idNumber', '') == resource.data.get('idNumber', '') &&
+                        request.resource.data.get('verificationStatus', 'pending') == resource.data.get('verificationStatus', 'pending')
+                      )
+                    );
+
+      allow delete: if request.auth != null && isAdmin();
+
+      // Notifications Subcollection
+      match /notifications/{notificationId} {
+        allow read, update, delete: if request.auth != null && request.auth.uid == uid && !isBlocked();
+        allow create: if request.auth != null && !isBlocked();
+      }
+    }
+
+    // Jobs Collection
+    match /jobs/{jobId} {
+      allow read: if request.auth != null && !isBlocked() && (
+                    resource.data.status == 'approved' || 
+                    resource.data.posterId == request.auth.uid || 
+                    isAdmin()
+                  );
+
+      allow create: if request.auth != null && !isBlocked() && (
+                      isAdmin() || (
+                        isVerified() &&
+                        request.resource.data.posterId == request.auth.uid && 
+                        request.resource.data.status == 'pending'
+                      )
+                    );
+
+      allow update: if request.auth != null && !isBlocked() && (
+                      isAdmin() || (
+                        resource.data.posterId == request.auth.uid && 
+                        request.resource.data.posterId == request.auth.uid &&
+                        (request.resource.data.status == 'closed' || request.resource.data.status == 'pending' || request.resource.data.status == resource.data.status)
+                      )
+                    );
+
+      allow delete: if request.auth != null && !isBlocked() && (
+                      isAdmin() || 
+                      resource.data.posterId == request.auth.uid
+                    );
+    }
+
+    // Applications Collection
+    match /applications/{applicationId} {
+      allow read: if request.auth != null && !isBlocked();
+
+      allow create: if request.auth != null && !isBlocked() && (
+                      isAdmin() || (
+                        isVerified() &&
+                        request.resource.data.seekerId == request.auth.uid && 
+                        request.resource.data.status == 'applied'
+                      )
+                    );
+
+      allow update: if request.auth != null && !isBlocked() && (
+                      isAdmin() || (
+                        resource.data.posterId == request.auth.uid && 
+                        request.resource.data.posterId == request.auth.uid &&
+                        (request.resource.data.status == 'accepted' || request.resource.data.status == 'rejected')
+                      )
+                    );
+
+      allow delete: if request.auth != null && !isBlocked() && (
+                      isAdmin() || 
+                      resource.data.seekerId == request.auth.uid
+                    );
+    }
+  }
+}
