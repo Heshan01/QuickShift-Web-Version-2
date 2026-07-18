@@ -8,19 +8,12 @@ import {
   adminRejectJob, 
   adminToggleBlockUser, 
   adminDeleteUser, 
-<<<<<<< HEAD
   deleteJob,
   adminUpdateVerification,
   AdminStats 
 } from '../lib/db';
 import { Job, UserProfile } from '../types';
 import { VerifiedBadge } from '../components/VerifiedBadge';
-=======
-  deleteJob, 
-  AdminStats 
-} from '../lib/db';
-import { Job, UserProfile } from '../types';
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 import { 
   Briefcase, 
   Users, 
@@ -38,23 +31,15 @@ import {
   RefreshCw, 
   ChevronRight,
   UserX,
-<<<<<<< HEAD
   X,
   BadgeCheck
-=======
-  X
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 } from 'lucide-react';
 
 export const AdminDashboard: React.FC = () => {
   const { t, logout, showToast } = useApp();
 
   // Active Admin Sub-Tab
-<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState<'pending' | 'jobs' | 'users' | 'verifications'>('pending');
-=======
-  const [activeTab, setActiveTab] = useState<'pending' | 'jobs' | 'users'>('pending');
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 
   // Stats
   const [stats, setStats] = useState<AdminStats>({
@@ -183,7 +168,6 @@ export const AdminDashboard: React.FC = () => {
     }
   };
 
-<<<<<<< HEAD
   // Update Verification Status
   const handleVerification = async (uid: string, status: 'verified' | 'rejected') => {
     setActionInProgress(uid);
@@ -198,8 +182,6 @@ export const AdminDashboard: React.FC = () => {
     }
   };
 
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
   // Delete Job Post
   const handleDeleteJob = async (jobId: string) => {
     if (!window.confirm("Are you sure you want to permanently delete this job posting? Applications to this job will also be removed.")) return;
@@ -318,7 +300,6 @@ export const AdminDashboard: React.FC = () => {
             Review Queue ({pendingJobs.length})
           </button>
           <button
-<<<<<<< HEAD
             onClick={() => setActiveTab('verifications')}
             className={`flex-1 py-3 text-xs font-bold rounded-xl transition ${
               activeTab === 'verifications'
@@ -329,8 +310,6 @@ export const AdminDashboard: React.FC = () => {
             Pending Verifications ({allUsers.filter(u => u.verificationStatus === 'pending').length})
           </button>
           <button
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
             onClick={() => setActiveTab('jobs')}
             className={`flex-1 py-3 text-xs font-bold rounded-xl transition ${
               activeTab === 'jobs'
@@ -532,7 +511,6 @@ export const AdminDashboard: React.FC = () => {
             </div>
           )}
 
-<<<<<<< HEAD
           {/* TAB 4: VERIFICATIONS */}
           {activeTab === 'verifications' && (
             <div className="space-y-4">
@@ -606,8 +584,6 @@ export const AdminDashboard: React.FC = () => {
             </div>
           )}
 
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
           {/* TAB 3: ALL USERS */}
           {activeTab === 'users' && (
             <div className="space-y-4">
@@ -639,10 +615,7 @@ export const AdminDashboard: React.FC = () => {
                         <tr>
                           <th className="px-6 py-4">Role</th>
                           <th className="px-6 py-4">Name</th>
-<<<<<<< HEAD
                           <th className="px-6 py-4">ID/NIC Number</th>
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                           <th className="px-6 py-4">Contact</th>
                           <th className="px-6 py-4">Registered On</th>
                           <th className="px-6 py-4">Status</th>
@@ -664,12 +637,9 @@ export const AdminDashboard: React.FC = () => {
                               <span className="font-bold text-slate-900 block">{u.fullName}</span>
                               {u.businessName && <span className="text-[10px] text-slate-400 block mt-0.5">{u.businessName}</span>}
                             </td>
-<<<<<<< HEAD
                             <td className="px-6 py-4 font-mono text-slate-600 font-medium">
                               {u.idNumber || 'Not Provided'}
                             </td>
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                             <td className="px-6 py-4">
                               <span className="block flex items-center"><Mail className="h-3 w-3 mr-1 text-slate-400 shrink-0" /> {u.email}</span>
                               <span className="block flex items-center mt-1 font-mono text-slate-500"><Phone className="h-3 w-3 mr-1 text-slate-400 shrink-0" /> {u.phone}</span>

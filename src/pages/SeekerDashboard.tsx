@@ -24,12 +24,8 @@ import {
   Clock, 
   XCircle, 
   RefreshCw,
-<<<<<<< HEAD
   Bell,
   AlertCircle
-=======
-  Bell
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 } from 'lucide-react';
 import { districtsOfSriLanka, jobCategories } from '../lib/translations';
 
@@ -130,16 +126,12 @@ export const SeekerDashboard: React.FC<SeekerDashboardProps> = ({ onNavigate }) 
 
   // Apply for Job
   const handleApply = async (job: Job) => {
-<<<<<<< HEAD
     if (!user || profile?.verificationStatus !== 'verified') {
       if (profile?.verificationStatus !== 'verified') {
         showToast("Your account must be verified by an admin to apply.", "error");
       }
       return;
     }
-=======
-    if (!user) return;
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
     
     // Check if already applied
     const alreadyApplied = myApplications.some(app => app.jobId === job.id);
@@ -752,7 +744,6 @@ export const SeekerDashboard: React.FC<SeekerDashboardProps> = ({ onNavigate }) 
                 const app = getJobApplicationStatus(selectedJob.id);
                 if (!app) {
                   return (
-<<<<<<< HEAD
                     <div className="flex items-center space-x-3 w-full justify-end">
                       {profile?.verificationStatus !== 'verified' && (
                         <div className="flex items-center text-amber-600 text-xs font-medium bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-200">
@@ -769,16 +760,6 @@ export const SeekerDashboard: React.FC<SeekerDashboardProps> = ({ onNavigate }) 
                         <span>{t('applyNow')}</span>
                       </button>
                     </div>
-=======
-                    <button
-                      onClick={() => handleApply(selectedJob)}
-                      disabled={submittingApp}
-                      className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-xs font-bold text-white rounded-xl shadow-xs disabled:opacity-50 flex items-center space-x-1 cursor-pointer"
-                    >
-                      {submittingApp && <Loader2 className="animate-spin h-3 w-3 mr-1" />}
-                      <span>{t('applyNow')}</span>
-                    </button>
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                   );
                 } else if (app.status === 'applied') {
                   return (

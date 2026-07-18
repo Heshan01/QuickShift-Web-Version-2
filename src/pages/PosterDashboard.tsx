@@ -26,12 +26,8 @@ import {
   Edit, 
   X, 
   RefreshCw,
-<<<<<<< HEAD
   Bell,
   AlertCircle
-=======
-  Bell
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 } from 'lucide-react';
 import { districtsOfSriLanka, jobCategories } from '../lib/translations';
 
@@ -475,7 +471,6 @@ export const PosterDashboard: React.FC<PosterDashboardProps> = ({ onNavigate }) 
                 </button>
               </div>
 
-<<<<<<< HEAD
               {profile?.verificationStatus !== 'verified' ? (
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3 text-amber-800">
                   <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
@@ -486,9 +481,6 @@ export const PosterDashboard: React.FC<PosterDashboardProps> = ({ onNavigate }) 
                 </div>
               ) : (
                 <form onSubmit={handlePostSubmit} className="space-y-5">
-=======
-              <form onSubmit={handlePostSubmit} className="space-y-5">
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                 {/* Title */}
                 <div>
                   <label className="block text-sm font-semibold text-slate-700">{t('jobTitle')} *</label>
@@ -641,10 +633,7 @@ export const PosterDashboard: React.FC<PosterDashboardProps> = ({ onNavigate }) 
                   </button>
                 </div>
               </form>
-<<<<<<< HEAD
               )}
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
             </div>
           )}
 

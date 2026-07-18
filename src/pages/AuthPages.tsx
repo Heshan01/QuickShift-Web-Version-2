@@ -18,10 +18,7 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
-<<<<<<< HEAD
   const [idNumber, setIdNumber] = useState('');
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
   const [businessName, setBusinessName] = useState('');
   const [selectedCats, setSelectedCats] = useState<string[]>([]);
   const [selectedRole, setSelectedRole] = useState<UserRole>('seeker');
@@ -46,13 +43,10 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
     return cleanNum.length === 10 && cleanNum.startsWith('0');
   };
 
-<<<<<<< HEAD
   const validateNIC = (nic: string) => {
     return /^[0-9]{9}[vVxX]$/.test(nic) || /^[0-9]{12}$/.test(nic);
   };
 
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
   const handleCategoryToggle = (cat: string) => {
     setSelectedCats(prev =>
       prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
@@ -74,11 +68,8 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
 
     if (mode === 'signup-seeker' || mode === 'signup-poster' || mode === 'complete-profile') {
       if (!fullName) tempErrors.fullName = t('requiredErr');
-<<<<<<< HEAD
       if (!idNumber) tempErrors.idNumber = t('requiredErr');
       else if (!validateNIC(idNumber)) tempErrors.idNumber = "Invalid NIC format (e.g., 123456789V or 123456789012)";
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
       if (!phone) tempErrors.phone = t('requiredErr');
       else if (!validatePhone(phone)) tempErrors.phone = t('phoneLengthErr');
     }
@@ -98,20 +89,12 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
         await resetPassword(email);
         onNavigate('login');
       } else if (mode === 'signup-seeker') {
-<<<<<<< HEAD
         await signup(email, password, 'seeker', fullName, idNumber, normalizedPhoneValue, {
-=======
-        await signup(email, password, 'seeker', fullName, normalizedPhoneValue, {
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
           preferredCategories: selectedCats
         });
         // Will auto navigate via role redirect
       } else if (mode === 'signup-poster') {
-<<<<<<< HEAD
         await signup(email, password, 'poster', fullName, idNumber, normalizedPhoneValue, {
-=======
-        await signup(email, password, 'poster', fullName, normalizedPhoneValue, {
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
           businessName: businessName || null
         });
         // Will auto navigate via role redirect
@@ -124,18 +107,12 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
         const newProfile = {
           role: selectedRole,
           fullName,
-<<<<<<< HEAD
           idNumber,
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
           phone: normalizedPhoneValue,
           email: user.email || '',
           photoURL: null,
           isBlocked: false,
-<<<<<<< HEAD
           verificationStatus: 'pending' as VerificationStatus,
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
           ...(selectedRole === 'seeker' ? { preferredCategories: selectedCats } : {}),
           ...(selectedRole === 'poster' ? { businessName: businessName || null } : {})
         };
@@ -282,7 +259,6 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
               </div>
             )}
 
-<<<<<<< HEAD
             {/* NATIONAL ID NUMBER */}
             {(mode === 'signup-seeker' || mode === 'signup-poster' || mode === 'complete-profile') && (
               <div>
@@ -306,8 +282,6 @@ export const AuthPages: React.FC<AuthPagesProps> = ({ mode, onNavigate }) => {
               </div>
             )}
 
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
             {/* EMAIL */}
             {mode !== 'complete-profile' && (
               <div>

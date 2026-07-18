@@ -510,7 +510,6 @@ export async function getAllJobsForAdmin(): Promise<Job[]> {
   }
 }
 
-<<<<<<< HEAD
 export async function adminUpdateVerification(uid: string, status: 'verified' | 'rejected'): Promise<void> {
   try {
     const userRef = doc(db, 'users', uid);
@@ -534,8 +533,6 @@ export async function adminUpdateVerification(uid: string, status: 'verified' | 
   }
 }
 
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 export async function adminApproveJob(jobId: string): Promise<void> {
   try {
     const jobRef = doc(db, 'jobs', jobId);

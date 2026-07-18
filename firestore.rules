@@ -15,41 +15,30 @@ service cloud.firestore {
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('role', 'seeker') == 'admin';
     }
 
-<<<<<<< HEAD
     function isVerified() {
       return request.auth != null && 
         exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('verificationStatus', 'pending') == 'verified';
     }
 
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
     // Users Collection
     match /users/{uid} {
       allow read: if request.auth != null;
       
       allow create: if request.auth != null && request.auth.uid == uid && 
                     (request.resource.data.get('role', 'seeker') != 'admin' || request.resource.data.email == 'heshandilhara004@gmail.com') && 
-<<<<<<< HEAD
                     request.resource.data.get('isBlocked', false) == false &&
                     request.resource.data.keys().hasAll(['idNumber']) &&
                     request.resource.data.idNumber is string;
-=======
-                    request.resource.data.get('isBlocked', false) == false;
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                     
       allow update: if request.auth != null && (
                       isAdmin() || (
                         request.auth.uid == uid && 
                         resource.data.get('isBlocked', false) != true && 
                         (request.resource.data.get('role', 'seeker') != 'admin' || request.resource.data.email == 'heshandilhara004@gmail.com') && 
-<<<<<<< HEAD
                         request.resource.data.get('isBlocked', false) == resource.data.get('isBlocked', false) &&
                         request.resource.data.get('idNumber', '') == resource.data.get('idNumber', '') &&
                         request.resource.data.get('verificationStatus', 'pending') == resource.data.get('verificationStatus', 'pending')
-=======
-                        request.resource.data.get('isBlocked', false) == resource.data.get('isBlocked', false)
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                       )
                     );
 
@@ -72,10 +61,7 @@ service cloud.firestore {
 
       allow create: if request.auth != null && !isBlocked() && (
                       isAdmin() || (
-<<<<<<< HEAD
                         isVerified() &&
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                         request.resource.data.posterId == request.auth.uid && 
                         request.resource.data.status == 'pending'
                       )
@@ -101,10 +87,7 @@ service cloud.firestore {
 
       allow create: if request.auth != null && !isBlocked() && (
                       isAdmin() || (
-<<<<<<< HEAD
                         isVerified() &&
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
                         request.resource.data.seekerId == request.auth.uid && 
                         request.resource.data.status == 'applied'
                       )

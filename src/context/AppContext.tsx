@@ -25,11 +25,7 @@ interface AppContextType {
   
   // Auth actions
   login: (email: string, pass: string) => Promise<void>;
-<<<<<<< HEAD
   signup: (email: string, pass: string, role: UserRole, fullName: string, idNumber: string, phone: string, extra?: { businessName?: string; preferredCategories?: string[] }) => Promise<void>;
-=======
-  signup: (email: string, pass: string, role: UserRole, fullName: string, phone: string, extra?: { businessName?: string; preferredCategories?: string[] }) => Promise<void>;
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
   logout: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
   
@@ -196,10 +192,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     pass: string,
     role: UserRole,
     fullName: string,
-<<<<<<< HEAD
     idNumber: string,
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
     phone: string,
     extra?: { businessName?: string; preferredCategories?: string[] }
   ) => {
@@ -217,18 +210,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const newProfile = {
         role: assignedRole,
         fullName,
-<<<<<<< HEAD
         idNumber,
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
         phone,
         email,
         photoURL: null,
         isBlocked: false,
-<<<<<<< HEAD
         verificationStatus: 'pending' as VerificationStatus,
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
         ...(assignedRole === 'seeker' ? { preferredCategories: extra?.preferredCategories || [] } : {}),
         ...(assignedRole === 'poster' ? { businessName: extra?.businessName || null } : {})
       };

@@ -3,10 +3,7 @@ import { useApp } from '../context/AppContext';
 import { updateUserProfile } from '../lib/db';
 import { Briefcase, ArrowLeft, User, Phone, Mail, Building, Check, Loader2 } from 'lucide-react';
 import { jobCategories } from '../lib/translations';
-<<<<<<< HEAD
 import { VerifiedBadge } from '../components/VerifiedBadge';
-=======
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
 
 interface ProfileSettingsProps {
   onNavigate: (page: string) => void;
@@ -84,18 +81,12 @@ export const ProfileSettings: React.FC<ProfileSettingsProps> = ({ onNavigate }) 
           {t('backToDashboard')}
         </button>
 
-<<<<<<< HEAD
         <div className="flex items-center gap-2">
           <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             {t('profile')}
           </h2>
           <VerifiedBadge status={profile.verificationStatus} showText className="mt-1" />
         </div>
-=======
-        <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-          {t('profile')}
-        </h2>
->>>>>>> 01f43b8177998ccf6f3b3385d3985989ccf061a5
         <p className="text-xs text-slate-500 mt-1">
           Review and update your public profile and categories
         </p>
